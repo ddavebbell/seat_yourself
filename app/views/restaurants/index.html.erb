@@ -1,0 +1,10 @@
+<h2>All Restaurants: Index Page</h2>
+
+<% @restaurants.each do |restaurant| %>
+	<div class="restaurant_index_page" >
+		<h3><%= restaurant.name %></h3>
+		<%= restaurant.neighbourhood %> | <%= restaurant.price_range %><br>
+		<%= restaurant.summary %>
+		<br>
+	</div>
+<% end %>

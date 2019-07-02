@@ -1,0 +1,17 @@
+<h2>Reservation index</h2>
+
+<h2>Dummy Name</h2>
+
+<% two_months_in_weeks(@date).each do |week| %>
+	<% week.each do |day| %>
+		<% if day.monday? || day.tuesday? %>
+			<div class="days_closed">
+				<%= "Restaurant closed" %><br>
+			</div>
+		<% else %>
+			<div class="days_open">
+				<%= day.strftime('%a %d %b %Y') %>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>

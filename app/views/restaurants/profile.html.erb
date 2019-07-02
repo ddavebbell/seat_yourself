@@ -1,0 +1,26 @@
+<h2>restaurant profile page for restaurant owners</h2>
+
+<!-- -FORM for the days of the month it is open (days of the week on a checkbox)
+-on any given day is calculate the next month of days and dynamically build the form.
+=If a date is checked, you create an OpenDay model that has a restaurant_id & a timestamp -->
+
+
+<h2>"set open days"</h2>
+
+<%= form_for @restaurant do |f| %>
+	<%= f.label "Monday" %>
+	<%= f.check_box :monday %>
+	<%= f.label "Tuesday" %>
+	<%= f.check_box :tuesday %>
+	<%= f.label "Wednesday" %>
+	<%= f.check_box :wednesday %>
+	<%= f.label "Thursday" %>
+	<%= f.check_box :thursday %>
+	<%= f.label "Friday" %>
+	<%= f.check_box :friday %>
+	<%= f.label "Saturday" %>
+	<%= f.check_box :Saturday %>
+	<%= f.label "Sunday" %>
+	<%= f.check_box :Sunday %>
+	<% f.submit %>
+<% end %>
