@@ -1,6 +1,5 @@
 class Restaurant < ApplicationRecord
-	belongs_to :restaurant_owner
+	belongs_to :user
 	has_many :open_days
 	has_many :reservations
-	has_many :customers
 end

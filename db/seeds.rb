@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create( name: "Archeo", address: "123 Distillery lane", neighbourhood: "Downtown", price_range: "$$", picture_url: "", restaurant_owner_id: nil )
+Restaurant.create( name: "Archeo", address: "123 Distillery lane", neighbourhood: "Downtown", price_range: "$$", picture_url: "", user_id: nil )
 
-Restaurant.create( name: "Fermenting Cellar", address: "679 Distillery lane", neighbourhood: "Downtown", price_range: "$$$", picture_url: "", restaurant_owner_id: nil )
+Restaurant.create( name: "Fermenting Cellar", address: "679 Distillery lane", neighbourhood: "Downtown", price_range: "$$$", picture_url: "", user_id: nil )
 
-Restaurant.create( name: "Electric Mudd BBQ", address: "13 Brock ave.", neighbourhood: "Parkdale", price_range: "$$", picture_url: "", restaurant_owner_id: nil )
+Restaurant.create( name: "Electric Mudd BBQ", address: "13 Brock ave.", neighbourhood: "Parkdale", price_range: "$$", picture_url: "", user_id: nil )
 
-Restaurant.create( name: "The Ace", address: "456 Roncesvalles ave.", neighbourhood: "West-end", price_range: "$$", picture_url: "", restaurant_owner_id: nil )
+Restaurant.create( name: "The Ace", address: "456 Roncesvalles ave.", neighbourhood: "West-end", price_range: "$$", picture_url: "", user_id: nil )
