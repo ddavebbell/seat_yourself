@@ -3,7 +3,6 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
     create_table :restaurants do |t|
       t.string :name
       t.string :address
-      t.string :neighbourhood
       t.string :price_range
       t.text :picture_url
       t.text :summary

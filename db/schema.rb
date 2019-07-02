@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_002128) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "neighbourhood"
     t.string "price_range"
     t.text "picture_url"
     t.text "summary"
