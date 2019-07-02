@@ -12,23 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_07_01_002128) do
 
-  create_table "customers", force: :cascade do |t|
-    t.text "name"
-    t.text "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.datetime "reservation_date"
     t.integer "customer_loyalty_points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "restaurant_owners", force: :cascade do |t|
-    t.text "name"
-    t.text "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +28,15 @@ ActiveRecord::Schema.define(version: 2019_07_01_002128) do
     t.text "summary"
     t.text "menu"
     t.integer "maximum_capacity"
-    t.integer "restaurant_owner_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

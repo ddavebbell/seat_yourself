@@ -9,7 +9,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.text :summary
       t.text :menu
       t.integer :maximum_capacity
-      t.integer :restaurant_owner_id
+      t.integer :user_id
 
       t.timestamps
     end
