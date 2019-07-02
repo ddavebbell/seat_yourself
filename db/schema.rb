@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_07_01_002128) do
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "reservation_date"
-    t.integer "customer_loyalty_points"
+    t.datetime "reservation_time"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_07_01_002128) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "neighbourhood"
     t.string "price_range"
     t.text "picture_url"
     t.text "summary"
