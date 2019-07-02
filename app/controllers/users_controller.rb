@@ -1,1 +1,1 @@
-class RestaurantOwnersController < ApplicationController; end
+class UsersController < ApplicationController; end
