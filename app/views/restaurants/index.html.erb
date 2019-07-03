@@ -13,6 +13,9 @@
 	<div class="restaurant_index_page" >
 		<%= restaurant.name %>
 		<%= restaurant.price_range %> | <%= restaurant.summary %>
+		<% if current_user_is_restaurant_owner?(restaurant) %>
+			You own this restaurant!
+		<% end %>
 		<br>
 	</div>
 <% end %>
