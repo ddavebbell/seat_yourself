@@ -8,22 +8,15 @@
 
 <div class="restaurant_index">
 	<%= @restaurant.picture_url %>
-<ul>
-	<%= @restaurant.name %>
-	<li><%= @restaurant.address %></li>
-	<li>Open at: <%= @restaurant.open_time %></li>
-	<li>Closing at: <%= @restaurant.closing_time %></li>
-	<li><%= link_to "Create a reservation for #{@restaurant.name}", reservations_path(@reservation) %></li>
-	<%= @restaurant.menu %>
-</ul>
+	<ul>
+		<li><%= @restaurant.name %></li>
+		<li><%= @restaurant.address %></li>
+		<li>Open at: <%= @restaurant.open_time %></li>
+		<li>Closing at: <%= @restaurant.closing_time %></li>
+		<li><%= link_to "Create a reservation for #{@restaurant.name}", reservations_path(@reservation) %></li>
+	</ul>
 </div>
 
-<%#  dummied out %>
-<%= form_for @reservation do |f| %>
-  <div class='field'>
-  	<%= f.label :Time %>
-  	<%= f.date_field :Time %>
-  </div>
-
-	<%= f.submit 'Sign Up '%>
-<% end %>
+<div class="restaurant_index">
+	<%= @restaurant.menu %>
+</div>
