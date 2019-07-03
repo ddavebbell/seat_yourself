@@ -5,6 +5,12 @@
 
 <h2>All Restaurants: Index Page</h2>
 
+<% if current_user %>
+	you're logged in
+<% else %>
+	you're not logged in
+<% end %>
+
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_index_page" >
 		<%= restaurant.name %>
