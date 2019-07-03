@@ -1,2 +1,2 @@
-module RestaurantOwnersHelper
+module UsersHelper
 end
