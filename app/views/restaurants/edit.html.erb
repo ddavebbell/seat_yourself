@@ -2,10 +2,11 @@
 
 <% if current_user_is_restaurant_owner?(@restaurant) %>
 	<%= link_to "Log out", logout_path, method: :delete %>
+
 	<p>You are logged in as: <%= current_user.email %>!
 	You are editing <%= @restaurant.name %></p>
-
 	<h3>Set business hours</h3>
+	
 	<%= form_for @restaurant, method: :patch do |f| %>
 	<div class='field'>
 		<%= f.label :open_time %>
