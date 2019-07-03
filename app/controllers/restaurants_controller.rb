@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+		@open_days = @restaurant.open_days.all
 	end
 
 end

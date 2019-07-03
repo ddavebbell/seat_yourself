@@ -3,18 +3,18 @@
 <div class="restaurant-show-page-top">
 <!-- link back to index page, link for owners to goto restaurant profile page -->
 <!--  Make   IF, restaurant-owner logged in, display link_to edit page-->
-	<%= link_to "All Restaurants", root_path %> |
-
-	<% %>
+	<%= link_to "All Restaurants", root_path %>
 </div>
 
 <div class="restaurant_index">
 	<%= @restaurant.picture_url %>
 	<%= @restaurant.name %>
-	<%= @restaurant.address %> | <%= @restaurant.neighbourhood %>
+	<%= @restaurant.address %>
 	<%= link_to "Create a reservation", reservations_path(@reservation) %><br>
 	<%= @restaurant.menu %>
 </div>
 
-<!--  Display calendar-like list-->
-<!--  somethign to do with Date.month / Date.week, iterating, making a single list -->
+<h2>All open days</h2>
+<%	@open_days.each do |open_day| %>
+<%= open_day %>
+<% end %>

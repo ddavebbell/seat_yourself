@@ -12,10 +12,4 @@ module ReservationsHelper
 		last = date.next_month.end_of_month.end_of_week(START_DAY)
 		(first..last).to_a.in_groups_of(7)
 	end
-
-	# def off_days(*day)
-	# 	if date.day == (*day)
-	# 		print "restaurant closed"
-	# end
-
 end

@@ -7,5 +7,4 @@ class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:email],params[:password_digest])
 	end
-
 end
