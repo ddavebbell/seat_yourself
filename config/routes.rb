@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 	resources :reservations
   resources :users
 
+  get 'restaurants/:id/profile', to: 'restaurants#profile'
+
   # Login & Sessions
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'

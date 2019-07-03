@@ -1,13 +1,12 @@
-<h2>top menu</h2>
-
-<h2>All Restaurants: Index Page</h2>
 
 <% if logged_in? %>
 	<%= link_to "Log out", logout_path, method: :delete %>
+	<p>You are logged in as: <%= current_user.email %>!</p>
 <% else %>
 	<%= link_to "Create New Account", new_user_path %>
 	<%= link_to "Log in", '/login' %>
 <% end %>
+<h2>All Restaurants: Index Page</h2>
 
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_index_page" >
