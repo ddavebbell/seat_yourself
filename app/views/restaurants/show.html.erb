@@ -1,7 +1,6 @@
-<h2>Show Page for Restaurants</h2>
-
+Show Page for Restaurants
 <div class="restaurant-show-page-top">
-	<%= link_to "All Restaurants", root_path %><br>
+	<%= link_to "Go back to all restaurants", root_path %><br>
 	<% if current_user_is_restaurant_owner?(@restaurant) %>
 		<%= link_to "Edit #{@restaurant.name} Profile", edit_restaurant_path(@restaurant) %>
 	<% end %>
