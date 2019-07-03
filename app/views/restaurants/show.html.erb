@@ -13,8 +13,3 @@
 	<%= link_to "Create a reservation", reservations_path(@reservation) %><br>
 	<%= @restaurant.menu %>
 </div>
-
-<h2>All open days</h2>
-<%	@open_days.each do |open_day| %>
-<%= open_day %>
-<% end %>

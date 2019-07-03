@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_002128) do
+ActiveRecord::Schema.define(version: 2019_07_02_234105) do
+
+  create_table "loyalty_points", force: :cascade do |t|
+    t.integer "points"
+    t.integer "restaurant_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.datetime "reservation_time"
