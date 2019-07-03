@@ -9,7 +9,9 @@
 <div class="restaurant_index">
 	<%= @restaurant.picture_url %>
 	<%= @restaurant.name %>
-	<%= @restaurant.address %>
+	<%= @restaurant.address %><br>
+	Open at: <%= @restaurant.open_time %><br>
+	Closing at: <%= @restaurant.closing_time %><br>
 	<%= link_to "Create a reservation", reservations_path(@reservation) %><br>
 	<%= @restaurant.menu %>
 </div>

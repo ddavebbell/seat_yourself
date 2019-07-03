@@ -15,8 +15,9 @@ class RestaurantsController < ApplicationController
 		@restaurant = Restaurant.find(params[:id])
 
 		@restaurant.assign_attributes({
-		open_time:	params[:open_time],
-		closing_time: params[:closing_time]	})
+		open_time:	params[:restaurant][:open_time],
+		closing_time: params[:restaurant][:closing_time]	})
+
 		@restaurant.save
 		redirect_to restaurant_path
 	end
