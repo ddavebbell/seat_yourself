@@ -8,12 +8,15 @@
 
 <div class="restaurant_index">
 	<%= @restaurant.picture_url %>
-<ul>
-	<%= @restaurant.name %>
-	<li><%= @restaurant.address %></li>
-	<li>Open at: <%= @restaurant.open_time %></li>
-	<li>Closing at: <%= @restaurant.closing_time %></li>
-	<li><%= link_to "Create a reservation for #{@restaurant.name}", reservations_path(@reservation) %></li>
+	<ul>
+		<%= @restaurant.name %>
+		<li><%= @restaurant.address %></li>
+		<li>Open at: <%= @restaurant.open_time %></li>
+		<li>Closing at: <%= @restaurant.closing_time %></li>
+		<li><%= link_to "Create a reservation for #{@restaurant.name}", reservations_path(@reservation) %></li>
+	</ul>
+</div>
+
+<div class="restaurant_menu">
 	<%= @restaurant.menu %>
-</ul>
 </div>
