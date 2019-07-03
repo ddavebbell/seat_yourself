@@ -1,19 +1,21 @@
 <h2>top menu</h2>
 
-<%# <%= if ensure_logged_in == false %> %>
-	<a href="#">Create New Account</a>
-	<%# <%= link_to "Create New Account" new_user_path(@user) %> %>
-<%# <%= else %> %>
-	<a href="#">Log in</a>
-	<%# <%= link_to "Log in", new_user_path(@user), method: :patch %> %>
-<%# <%= end %> %>
-
 <h2>All Restaurants: Index Page</h2>
+
+<% if logged_in? %>
+	<%= link_to "Log out", logout_path, method: :delete %>
+<% else %>
+	<%= link_to "Create New Account", new_user_path %>
+	<%= link_to "Log in", '/login' %>
+<% end %>
 
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_index_page" >
 		<%= restaurant.name %>
 		<%= restaurant.price_range %> | <%= restaurant.summary %>
+		<% if current_user_is_restaurant_owner?(restaurant) %>
+			You own this restaurant!
+		<% end %>
 		<br>
 	</div>
 <% end %>
