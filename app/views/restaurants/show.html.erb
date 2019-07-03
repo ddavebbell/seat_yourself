@@ -1,17 +1,21 @@
 <h2>Show Page for Restaurants</h2>
-
 <div class="restaurant-show-page-top">
-<!-- link back to index page, link for owners to goto restaurant profile page -->
-<!--  Make   IF, restaurant-owner logged in, display link_to edit page-->
-	<%= link_to "All Restaurants", root_path %>
+	<%= link_to "Go back to all restaurants", root_path %><br>
+	<% if current_user_is_restaurant_owner?(@restaurant) %>
+		<%= link_to "Edit #{@restaurant.name} Profile", edit_restaurant_path(@restaurant) %>
+	<% end %>
 </div>
 
 <div class="restaurant_index">
 	<%= @restaurant.picture_url %>
+<ul>
 	<%= @restaurant.name %>
-	<%= @restaurant.address %>
-	<%= link_to "Create a reservation", reservations_path(@reservation) %><br>
+	<li><%= @restaurant.address %></li>
+	<li>Open at: <%= @restaurant.open_time %></li>
+	<li>Closing at: <%= @restaurant.closing_time %></li>
+	<li><%= link_to "Create a reservation for #{@restaurant.name}", reservations_path(@reservation) %></li>
 	<%= @restaurant.menu %>
+</ul>
 </div>
 
 <%#  dummied out %>
