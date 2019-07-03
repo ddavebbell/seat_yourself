@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 	resources :restaurants
 	resources :reservations
+  resources :users
 
   # Login & Sessions
   get    '/signup',  to: 'users#new'
