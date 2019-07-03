@@ -9,7 +9,8 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.text :menu
       t.integer :maximum_capacity
       t.integer :user_id
-
+      t.time :open_time
+      t.time :closing_time
       t.timestamps
     end
   end

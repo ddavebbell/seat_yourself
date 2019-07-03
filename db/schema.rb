@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_234105) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "reservation_time"
+    t.date "reservation_date"
+    t.time "reservation_time"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_234105) do
     t.text "menu"
     t.integer "maximum_capacity"
     t.integer "user_id"
+    t.time "open_time"
+    t.time "closing_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

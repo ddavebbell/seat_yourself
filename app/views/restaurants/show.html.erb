@@ -13,3 +13,13 @@
 	<%= link_to "Create a reservation", reservations_path(@reservation) %><br>
 	<%= @restaurant.menu %>
 </div>
+
+<%#  dummied out %>
+<%= form_for @reservation do |f| %>
+  <div class='field'>
+  	<%= f.label :Time %>
+  	<%= f.date_field :Time %>
+  </div>
+
+	<%= f.submit 'Sign Up '%>
+<% end %>
