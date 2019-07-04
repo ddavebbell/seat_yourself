@@ -17,6 +17,8 @@ class ReservationsController < ApplicationController
 			guest_count: params[:reservation][:guest_count],
 			user_id: current_user.id
 			})
+		validate_reservation_parameters
+		redirect_to root_url
 	end
 
 	private
@@ -24,7 +26,7 @@ class ReservationsController < ApplicationController
 	def validate_reservation_parameters
 		if @reservation.save
 			flash[:notice] = "You have made a reservation"
-		elsif reservation_is_in_business_hours(@reservation[:reservation_time]) == false
+		elsif reservation_is_in_business_hours?(@reservation[:reservation_time]) == false
 		else
 			flash[:alert] = "Nothing happened"
 			render :new
