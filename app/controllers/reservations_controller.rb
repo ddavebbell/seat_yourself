@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
 			})
 			if @reservation.save
 				flash[:notice] = "You have made a reservation"
-				redirect_to show_url
+				redirect_to root_url
 			else
 				render :index
 			end

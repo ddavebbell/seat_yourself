@@ -2,7 +2,7 @@ module ReservationsHelper
 
 	require 'date'
 
-	DAYS = %i[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+	DAYS = %i[sunday monday tuesday wednesday thursday friday saturday]
 	START_DAY = :monday
 
 	def two_months_in_weeks(date)
