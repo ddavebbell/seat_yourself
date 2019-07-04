@@ -14,10 +14,4 @@ module ReservationsHelper
 	def display_day_symbol(day)
 		day.to_s.capitalize
 	end
-	
-	def business_hours(reservation_time)
-		@restaurant = Restaurant.find(params[:restaurant_id])
-		reservation_time.between?(@restaurant.open_time, @restaurant.closing_time)
-	end
-
 end

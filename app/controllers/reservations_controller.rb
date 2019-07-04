@@ -17,16 +17,19 @@ class ReservationsController < ApplicationController
 			guest_count: params[:reservation][:guest_count],
 			user_id: current_user.id
 			})
-
-			if @reservation.save
-				flash[:notice] = "You have made a reservation"
-				redirect_to root_url
-			elsif !business_hours(@reservation[:reservation_time])
-				flash[:notice] = "Must be in business hours"
-			else
-				flash[:alert] = "Nothing happened"
-				render :index
-			end
-
 	end
+
+	private
+
+	def validate_reservation_parameters
+		if @reservation.save
+			flash[:notice] = "You have made a reservation"
+		elsif reservation_is_in_business_hours(@reservation[:reservation_time]) == false
+		else
+			flash[:alert] = "Nothing happened"
+			render :new
+		end
+	end
+
+
 end
