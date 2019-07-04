@@ -1,9 +1,6 @@
 class ReservationsController < ApplicationController
 
 	def index
-	end
-
-	def new
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new
 		@reservation.assign_attributes({ restaurant_id: params[:restaurant_id],
@@ -11,11 +8,15 @@ class ReservationsController < ApplicationController
 		@date = Date.today
 	end
 
+	def new
+
+	end
+
 	def show
 	end
 
-	def update
-
+	def create
+		@reservation = Reservation.new
 		@reservation.assign_attributes({
 			reservation_date: params[:reservation_date][:reservation_date],
 			reservation_time: params[:reservation_time][:reservation_time],

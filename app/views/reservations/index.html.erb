@@ -1,0 +1,15 @@
+<h2>reservation index</h2>
+
+<h2>Make a Reservation for <%= @restaurant.name %></h2>
+
+<%= form_for restaurant_reservations_path do |f| %>
+	<% two_months_in_weeks(@date).each do |week| %>
+		<% week.each do |day| %>
+			<%= f.label :reservation_date, day.strftime('%a %d %b %Y'), :value => day %>
+			<%= f.radio_button :reservation_date, day %><br>
+		<% end %>
+	<% end %>
+	<%= f.label :reservation_time, :value => 'reservation_time' %>
+	<%= time_field :reservation_time, "reservation_time"  %><br>
+	<%= f.submit %>
+<% end %>

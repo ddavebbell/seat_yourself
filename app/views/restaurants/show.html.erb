@@ -13,7 +13,7 @@
 		<li><%= @restaurant.address %></li>
 		<li>Open at: <%= @restaurant.open_time %></li>
 		<li>Closing at: <%= @restaurant.closing_time %></li>
-		<li><%= link_to "Create a reservation for #{@restaurant.name}", new_restaurant_reservation_path(@restaurant.id) %></li>
+		<li><%= link_to "Create a reservation for #{@restaurant.name}", restaurant_reservations_path(@restaurant.id) %></li>
 	</ul>
 </div>
 
