@@ -2,7 +2,7 @@ module ReservationsHelper
 
 	require 'date'
 
-	DAYS = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+	DAYS = %i[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
 	START_DAY = :monday
 
 	def two_months_in_weeks(date)
@@ -10,4 +10,11 @@ module ReservationsHelper
 		last = date.next_month.end_of_month.end_of_week(START_DAY)
 		(first..last).to_a.in_groups_of(7)
 	end
+
+	def display_day_symbol(day)
+		day.to_s.capitalize
+	end
+
+
+
 end
