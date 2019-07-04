@@ -18,14 +18,16 @@ class ReservationsController < ApplicationController
 	def create
 		@reservation = Reservation.new
 		@reservation.assign_attributes({
-			reservation_date: params[:reservation_date][:reservation_date],
-			reservation_time: params[:reservation_time][:reservation_time],
+			reservation_date: params[:reservation][:reservation_date],
+			reservation_time: params[:reservation_time][:reservation_time].to_s,
 			restaurant_id: params[:restaurant_id],
 			user_id: current_user.id
 			})
 			if @reservation.save
 				flash[:notice] = "You have made a reservation"
-			redirect_to root_url
+				redirect_to show_url
+			else
+				render :index
 			end
 
 	end

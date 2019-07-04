@@ -2,7 +2,7 @@
 
 <h2>Make a Reservation for <%= @restaurant.name %></h2>
 
-<%= form_for restaurant_reservations_path do |f| %>
+<%= form_for [@restaurant, @reservation] do |f| %>
 	<% two_months_in_weeks(@date).each do |week| %>
 		<% week.each do |day| %>
 			<%= f.label :reservation_date, day.strftime('%a %d %b %Y'), :value => day %>
