@@ -8,9 +8,6 @@ class ReservationsController < ApplicationController
 		@date = Date.today
 	end
 
-	def show
-	end
-
 	def create
 		@reservation = Reservation.new
 		@reservation.assign_attributes({
