@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_234105) do
     t.time "reservation_time"
     t.integer "user_id"
     t.integer "restaurant_id"
+    t.integer "guest_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

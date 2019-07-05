@@ -15,6 +15,4 @@ module ReservationsHelper
 		day.to_s.capitalize
 	end
 
-
-
 end

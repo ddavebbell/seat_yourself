@@ -6,16 +6,19 @@
 	<p>You are logged in as: <%= current_user.email %>!
 	You are editing <%= @restaurant.name %></p>
 	<h3>Set business hours</h3>
-	
+
 	<%= form_for @restaurant, method: :patch do |f| %>
 	<div class='field'>
 		<%= f.label :open_time %>
 		<%= f.time_field :open_time %>
 	</div>
-
 	<div class='field'>
 		<%= f.label :closing_time %>
 		<%= f.time_field :closing_time %>
+	</div>
+	<div class='field'>
+		<%= f.label :maximum_capacity %>
+		<%= f.number_field :maximum_capacity %>
 	</div>
 		<%= f.submit "Adjust Opening and Closing Times" %>
 	<% end %>
