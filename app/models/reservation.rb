@@ -15,4 +15,6 @@ class Reservation < ApplicationRecord
 		reservation_time.between?(restaurant.open_time, restaurant.closing_time)
 	end
 
+
+
 end

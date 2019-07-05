@@ -10,8 +10,10 @@
 		<% end %>
 	<% end %>
 	<%= f.label :guest_count, :value => 'guest_count' %>
-	<%= f.text_field :guest_count %><br>
+	<%= f.text_field :guest_count %>
+	<br>
 	<%= f.label :reservation_time, :value => 'reservation_time' %>
-	<%= time_field :reservation_time, "reservation_time"  %><br>
+	<%= time_field :reservation_time, "reservation_time"  %>
+	<br>
 	<%= f.submit %>
 <% end %>
