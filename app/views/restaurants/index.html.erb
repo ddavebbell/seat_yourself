@@ -6,7 +6,12 @@
 	<b>Your reservations:</b><br>
 	<% reso.each do |r| %>
 		Date: <%= r.reservation_date.strftime('%a %d %b %Y') %><br>
-		Restaurant: <%= @restaurants.find( r.restaurant_id ).name %><br>
+		Restaurant: <%= @restaurants.find( r.restaurant_id ).name %> | Loyalty Points: <% lp = @user.reservations.find_all { |res| res.restaurant_id == r.restaurant_id } %><%= lp.length %>
+		<br>
+
+
+
+
 		Guest Count: <%= r.guest_count %><br>
 		<br>
 		<% end %>
