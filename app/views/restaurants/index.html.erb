@@ -2,6 +2,15 @@
 <% if logged_in? %>
 	<%= link_to "Log out", logout_path, method: :delete %>
 	<p>You are logged in as: <%= current_user.email %>!</p>
+	<% reso = @reservations.find_all { |reso| reso.user_id == current_user.id } %>
+	<b>Your reservations:</b><br>
+	<% reso.each do |r| %>
+		Date: <%= r.reservation_date.strftime('%a %d %b %Y') %><br>
+		Restaurant: <%= @restaurants.find( r.restaurant_id ).name %><br>
+		Guest Count: <%= r.guest_count %><br>
+		<br>
+		<% end %>
+
 <% else %>
 	<%= link_to "Create New Account", new_user_path %>
 	<%= link_to "Log in", '/login' %>
