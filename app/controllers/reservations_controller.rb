@@ -30,10 +30,10 @@ class ReservationsController < ApplicationController
 			flash[:notice] = "You have made a reservation"
 		elsif @reservation.reservation_time.between?(@restaurant.open_time, @restaurant.closing_time) == false
 			flash[:alert] = "Reservation must be within business hours"
-			render :index
+			redirect_to restaurant_reservations_url
 		else
 			@reservation.errors.full_messages
-			render :index
+			redirect_to restaurant_reservations_url
 		end
 	end
 
