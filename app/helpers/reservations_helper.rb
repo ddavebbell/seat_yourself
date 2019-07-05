@@ -14,4 +14,5 @@ module ReservationsHelper
 	def display_day_symbol(day)
 		day.to_s.capitalize
 	end
+
 end

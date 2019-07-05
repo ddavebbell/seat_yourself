@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
 	def index
-		@restaurant = Restaurant.find(params[:id])
+		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new
 		@reservation.assign_attributes({ restaurant_id: params[:restaurant_id],
 			user_id: params[:user_id] })
@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.find(params[:id])
+		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new
 		@reservation.assign_attributes({
 			reservation_date: params[:reservation][:reservation_date],
@@ -19,19 +19,21 @@ class ReservationsController < ApplicationController
 			user_id: current_user.id
 			})
 		validate_reservation_parameters
-		redirect_to root_url
 	end
 
 	private
 
 	def validate_reservation_parameters
-		if @reservation.save
+		if @reservation.reservation_time.between?(@restaurant.open_time, @restaurant.closing_time)
+			@reservation.save
 			flash[:notice] = "You have made a reservation"
-		elsif reservation_is_in_business_hours?(@reservation[:reservation_time]) == false
+			render :show
+		elsif @reservation.reservation_time.between?(@restaurant.open_time, @restaurant.closing_time) == false
 			flash[:alert] = "Reservation must be within business hours"
+			render :index
 		else
-			flash[:alert] = "Nothing happened"
-			render :new
+			@reservation.errors.full_messages
+			render :index
 		end
 	end
 

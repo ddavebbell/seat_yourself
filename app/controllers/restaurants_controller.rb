@@ -19,6 +19,7 @@ class RestaurantsController < ApplicationController
 			closing_time: params[:restaurant][:closing_time],
 			maximum_capacity: params[:restaurant][:maximum_capacity]
 			})
+		@restaurant.save
 
 		redirect_to restaurant_path
 	end
