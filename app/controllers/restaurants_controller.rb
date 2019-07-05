@@ -5,6 +5,9 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
+		@reservations = Reservation.find( params[:id])
+		@date = Date.today
+		@users = User.all
 	end
 
 	def create
