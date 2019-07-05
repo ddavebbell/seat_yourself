@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 	def index
 		@restaurants = Restaurant.all
 		@reservations = Reservation.all
+		@user = User.find(current_user.id)
 	end
 
 	def show
