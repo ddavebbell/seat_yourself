@@ -3,10 +3,6 @@ class ReservationsController < ApplicationController
 	def index
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new
-		@reservation.assign_attributes({
-			restaurant_id: params[:restaurant_id],
-			user_id: params[:user_id]
-		})
 		@date = Date.today
 	end
 
