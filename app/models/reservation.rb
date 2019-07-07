@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
 	validates :guest_count, presence: true
 	validates :reservation_time, presence: true
 	validate :reservation_size_is_within_capacity?
-	# validate :reservation_is_in_business_hours?
+	validate :reservation_is_in_business_hours?
 
 	belongs_to :open_day
 	belongs_to :user
