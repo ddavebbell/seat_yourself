@@ -14,6 +14,23 @@ class RestaurantsController < ApplicationController
 
 	def create
 		@restaurant = Restaurant.new
+		@restaurant.assign_attributes({
+			address:	params[:restaurant][:address],
+			reservation_max:	params[:restaurant][:reservation_max],
+			reservation_min:	params[:restaurant][:reservation_min],
+			summary:	params[:restaurant][:summary],
+			name:	params[:restaurant][:name],
+			open_time:	params[:restaurant][:open_time],
+			closing_time: params[:restaurant][:closing_time],
+			maximum_capacity: params[:restaurant][:maximum_capacity],
+			user_id: current_user.id
+		})
+		@restaurant.save
+		redirect_to root_url
+	end
+
+	def new
+		@restaurant = Restaurant.new
 	end
 
 	def update

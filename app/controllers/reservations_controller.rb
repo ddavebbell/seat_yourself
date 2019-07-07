@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	include TimeUtility
 
 	def index
 		@restaurant = Restaurant.find(params[:restaurant_id])
