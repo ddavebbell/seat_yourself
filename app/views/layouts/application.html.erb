@@ -18,6 +18,15 @@
       <% end %>
     </ul>
   <% end %>
+
+  <% if logged_in? %>
+    <%= link_to "Create New Restaurant", new_restaurant_path %> | <%= link_to "Log out", logout_path, method: :delete %>
+    You are logged in as: <%= current_user.email %>!
+  <% else %>
+    <%= link_to "Create New Account", new_user_path %>
+  	<%= link_to "Log in", '/login' %>
+  <% end %>
+
 <%= yield %>
 
 </body>
