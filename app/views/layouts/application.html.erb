@@ -8,12 +8,14 @@
 </head>
 <body>
   <% if flash[:alert] %>
-    <p>Oops - there were problems with your submission. Please fix the following:</p>
     <ul>
-      <% flash[:alert].each do |message| %>
-        <li><%= message %></li>
+      <% if flash[:alert].class == String %>
+        <li><%= flash[:alert] %></li>
+      <% else %>
+        <% flash[:alert].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       <% end %>
-      
     </ul>
   <% end %>
 <%= yield %>
