@@ -1,30 +1,18 @@
-<h2>Restaurants Show Page</h2>
 <div class="restaurant-show-page-top">
+	<h2><%= @restaurant.name %></h2>
 	<div class='button'><%= link_to "Go back to all restaurants", root_path %></div>
-
-</div>
-
-
-
-
 
 	<% if current_user_is_restaurant_owner?(@restaurant) %>
 		<%= link_to "Edit #{@restaurant.name} Profile", edit_restaurant_path(@restaurant) %>
 
 		<div class="restaurant_owner_view_restaurant_all_reservations">
-		<h2>All Reservations for <%= @restaurant.name %></h2>
-			<% two_months_in_weeks(@date).each do |week| %>
-				<% week.each do |day| %>
-					<% reservations = @restaurant.reservations.where(reservation_date: day) %>
-					<% if reservations.any? %>
-						<strong><%= day.to_s %></strong>
-					<% end %>
-					<% reservations.each do |reservation| %>
-						<div>Contact: <%= reservation.user.email %> | Guest Count: <%= reservation.guest_count %></div>
-						<div>Reservation Time: <%= reservation.reservation_time.strftime("at %I:%M%p") %></div>
-					<% end %>
-				<% end %>
-			<% end %>
+		<h3>Next two months of reservations</h3>
+		<% @reservations.each do |reservation| %>
+			<strong><%= reservation.reservation_date.inspect %></strong>
+			<div>Contact: <%= reservation.user.email %> | Guest Count: <%= reservation.guest_count %></div>
+			<div>Reservation Time: <%= reservation.reservation_time.strftime("at %I:%M%p") %></div>
+			<br>
+		<% end %>
 		</div>
 	<% else %>
 		<div class="restaurant_index_customer">
@@ -41,3 +29,4 @@
 			<%= @restaurant.menu %>
 		</div>
 	<% end %>
+</div>
