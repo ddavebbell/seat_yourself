@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
 
+	before_action :ensure_logged_in
+
 	def index
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = Reservation.new

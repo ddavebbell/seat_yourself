@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include UsersHelper
+
+  def ensure_logged_in
+    redirect_to root_url if current_user.nil?
+    flash[:alert] = "You must create an account"
+  end
+
 end
