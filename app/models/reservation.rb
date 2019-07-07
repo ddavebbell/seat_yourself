@@ -12,15 +12,12 @@ class Reservation < ApplicationRecord
 	def reservation_is_in_business_hours?
 		restaurant = Restaurant.find_by(id: restaurant_id)
 		unless reservation_time.between?(restaurant.open_time, restaurant.closing_time)
-			errors.add(:reservation_time, 'reservation must be within business hours')
+			errors.add(:reservation_time, 'must be within business hours')
 		end
 	end
 
 	def reservation_size_is_within_capacity?
-		guest_count_is_below_max = guest_count <= restaurant.reservation_max
-		guest_count_is_above_min = guest_count >= restaurant.reservation_min
-		unless guest_count_is_below_max && guest_count_is_above_min
-			errors.add(:guest_count, 'Guest count is too high')
-		end
+		errors.add(:guest_count, 'is too high') if guest_count > restaurant.reservation_max
+		errors.add(:guest_count, 'is too low') if guest_count < restaurant.reservation_min
 	end
 end
