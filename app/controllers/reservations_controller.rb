@@ -26,15 +26,11 @@ class ReservationsController < ApplicationController
 	private
 
 	def validate_reservation_parameters
-		if @reservation.reservation_time.between?(@restaurant.open_time, @restaurant.closing_time)
-			@reservation.save
-			render :show
-			flash[:notice] = "You have made a reservation"
-		elsif @reservation.reservation_time.between?(@restaurant.open_time, @restaurant.closing_time) == false
-			flash[:alert] = "Reservation must be within business hours"
+		if @reservation.save
+			flash[:alert] = "You have made a reservation"
 			redirect_to restaurant_reservations_url
 		else
-			@reservation.errors.full_messages
+			flash[:alert] = @reservation.errors.full_messages
 			redirect_to restaurant_reservations_url
 		end
 	end
