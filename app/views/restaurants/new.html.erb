@@ -1,0 +1,37 @@
+<h2>Create Your Restaurant</h2>
+
+<%= form_for @restaurant do |f| %>
+<div class='field'>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</div>
+<div class='field'>
+	<%= f.label :reservation_max %>
+	<%= f.number_field :reservation_max %>
+</div>
+<div class='field'>
+	<%= f.label :reservation_min %>
+	<%= f.number_field :reservation_min %>
+</div>
+<div class='field'>
+	<%= f.label :summary %>
+	<%= f.text_field :summary %>
+</div>
+<div class='field'>
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+</div>
+<div class='field'>
+	<%= f.label :open_time %>
+	<%= f.time_field :open_time %>
+</div>
+<div class='field'>
+	<%= f.label :closing_time %>
+	<%= f.time_field :closing_time %>
+</div>
+<div class='field'>
+	<%= f.label :maximum_capacity %>
+	<%= f.number_field :maximum_capacity %>
+</div>
+	<%= f.submit "Create a Restaurant" %>
+<% end %>
