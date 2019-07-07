@@ -10,15 +10,15 @@
 	<%= form_for @restaurant, method: :patch do |f| %>
 	<div class='field'>
 		<%= f.label :open_time %>
-		<%= f.time_field :open_time %>
+		<%= f.time_field :open_time, {:default => {:hour => @restaurant.open_time.hour, :minute => @restaurant.open_time.min}} %>
 	</div>
 	<div class='field'>
 		<%= f.label :closing_time %>
-		<%= f.time_field :closing_time %>
+		<%= f.time_field :closing_time, {:default => {:hour => @restaurant.closing_time.hour, :minute => @restaurant.closing_time.min}} %>
 	</div>
 	<div class='field'>
 		<%= f.label :maximum_capacity %>
-		<%= f.number_field :maximum_capacity %>
+		<%= f.number_field :maximum_capacity, {:default => {:value => @restaurant.maximum_capacity}} %>
 	</div>
 		<%= f.submit "Adjust Opening and Closing Times" %>
 	<% end %>

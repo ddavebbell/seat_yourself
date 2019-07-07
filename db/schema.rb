@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_234105) do
     t.integer "user_id"
     t.time "open_time"
     t.time "closing_time"
+    t.integer "reservation_min"
+    t.integer "reservation_max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

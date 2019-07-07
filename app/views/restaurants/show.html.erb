@@ -5,25 +5,24 @@
 	<% if current_user_is_restaurant_owner?(@restaurant) %>
 		<%= link_to "Edit #{@restaurant.name} Profile", edit_restaurant_path(@restaurant) %>
 
-			<div class="restaurant_owner_view_restaurant_all_reservations">
-			<h2>All Reservations for <%= @restaurant.name %></h2>
-				<% two_months_in_weeks(@date).each do |week| %>
-						<% week.each do |day| %>
-						<% if @restaurant.reservations.find_by(reservation_date: day) == nil %>
-							<h4>No reservations on <%= day.to_s %></h4>
-						<% else %>
+		<div class="restaurant_owner_view_restaurant_all_reservations">
+		<h2>All Reservations for <%= @restaurant.name %></h2>
+			<% two_months_in_weeks(@date).each do |week| %>
+				<% week.each do |day| %>
+					<% if @restaurant.reservations.find_by(reservation_date: day) == nil %>
+						<h4>No reservations on <%= day.to_s %></h4>
+					<% else %>
 
-						<b><%= day.to_s %></b><br>
-							<% reservations = @restaurant.reservations.where(reservation_date: day) %>
-							<% reservations.sort_by { |reso| reso.reservation_time }%>
-							<% reservations.each do |reservation| %><br>
-								User id: <%= reservation.user_id %> | Guest Count: <%= reservation.guest_count %><br>
-								Reservation Time: <%= reservation.reservation_time.strftime("at %I:%M%p") %><br>
-							<% end %>
+					<b><%= day.to_s %></b><br>
+						<% reservations = @restaurant.reservations.where(reservation_date: day) %>
+						<% reservations.each do |reservation| %><br>
+							User id: <%= reservation.user_id %> | Guest Count: <%= reservation.guest_count %><br>
+							Reservation Time: <%= reservation.reservation_time.strftime("at %I:%M%p") %><br>
 						<% end %>
+					<% end %>
 				<% end %>
-	<% end %>
-			</div>
+			<% end %>
+		</div>
 </div>
 	<% elsif logged_in? && current_user_is_restaurant_owner?(@restaurant) == false %>
 		<div class="restaurant_index_customer">
@@ -39,5 +38,4 @@
 		<div class="restaurant_index">
 			<%= @restaurant.menu %>
 		</div>
-
 	<% end %>
