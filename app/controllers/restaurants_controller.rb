@@ -7,7 +7,11 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@reservations = @restaurant.reservations
+		@reservations = @restaurant.reservations.where(
+	    'reservation_date <= :two_months_from_now and reservation_date >= :today',
+	    :two_months_from_now  => Time.now + 60.days,
+	    :today => Time.now
+		)
 		@date = Date.today
 		@users = User.all
 	end
