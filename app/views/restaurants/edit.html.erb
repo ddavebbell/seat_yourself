@@ -1,10 +1,7 @@
 <p>restaurant profile page for restaurant owners</p>
 
 <% if current_user_is_restaurant_owner?(@restaurant) %>
-	<%= link_to "Log out", logout_path, method: :delete %>
-
-	<p>You are logged in as: <%= current_user.email %>!
-	You are editing <%= @restaurant.name %></p>
+	<p>You are editing <%= @restaurant.name %></p>
 	<h3>Set business hours</h3>
 
 	<%= form_for @restaurant, method: :patch do |f| %>
@@ -22,9 +19,6 @@
 	</div>
 		<%= f.submit "Adjust Opening and Closing Times" %>
 	<% end %>
-
-
 <% else %>
-	<%= link_to "Create New Account", new_user_path %>
-	<%= link_to "Log in", '/login' %>
+	<% redirect_to root_url %>
 <% end %>
